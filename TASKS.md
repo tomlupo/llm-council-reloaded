@@ -1,6 +1,6 @@
 # TASKS.md
 
-Proposed and tracked improvements for LLM Council Plus. Pick items as needed; order is rough priority.
+Proposed and tracked improvements for LLM Council Reloaded. Pick items as needed; order is rough priority.
 
 ---
 

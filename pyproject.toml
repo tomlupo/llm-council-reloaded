@@ -1,5 +1,5 @@
 [project]
-name = "llm-council-plus"
+name = "llm-council-reloaded"
 version = "0.1.0"
 description = "Multi-LLM council with debate, decide, and brainstorm modes"
 requires-python = ">=3.10"

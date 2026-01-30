@@ -1,4 +1,4 @@
-"""FastAPI application for LLM Council Plus."""
+"""FastAPI application for LLM Council Reloaded."""
 
 import json
 from typing import Optional
@@ -31,7 +31,7 @@ try:
 except ImportError:
     pass
 
-app = FastAPI(title="LLM Council Plus")
+app = FastAPI(title="LLM Council Reloaded")
 
 app.add_middleware(
     CORSMiddleware,

@@ -1,4 +1,4 @@
-"""Settings model for LLM Council Plus."""
+"""Settings model for LLM Council Reloaded."""
 
 import json
 import os

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run LLM Council Plus: backend + frontend. Ctrl+C stops both.
+# Run LLM Council Reloaded: backend + frontend. Ctrl+C stops both.
 
 set -e
 ROOT="$(cd "$(dirname "$0")" && pwd)"

@@ -1,4 +1,4 @@
-# LLM Council Plus
+# LLM Council Reloaded
 
 Multi-LLM council with Ask, Debate, Decide, Minmax, and Brainstorm modes. Each model responds independently; peer review and chairman synthesis produce a final answer.
 
@@ -45,6 +45,7 @@ For **OpenAI**, **Google**, and **Anthropic** the app tries the **CLI first** (n
 | Google    | `gemini`     | `GOOGLE_API_KEY`     |
 | Anthropic | `claude`     | `ANTHROPIC_API_KEY`  |
 | DeepSeek  | —            | `DEEPSEEK_API_KEY`   |
+| [MiniMax](https://www.minimax.io/)   | —            | `MINIMAX_API_KEY`    |
 
 **Using CLIs (no API key):**
 
@@ -65,11 +66,25 @@ So: **use the CLIs for no API key**, or **set the env vars** to use the APIs (an
 
 ## Modes
 
-- **Ask**: Each model answers; peer review; chairman synthesis. (Execution mode can limit to chat-only or ranking.)
-- **Debate**: Opening statements, rebuttals, peer evaluation, chairman verdict.
-- **Decide**: Options + criteria → per-model scores and recommendation → chairman recommendation.
-- **Minmax**: Same options/criteria as Decide; models score under worst-case assumptions → chairman picks the option that maximizes the minimum outcome.
-- **Brainstorm**: Rounds of ideas and cross-pollination → chairman synthesis into themes and next steps.
+### Ask
+
+The default council mode. All models answer the question independently (preventing groupthink), then anonymously peer-review each other's responses on criteria like accuracy and reasoning. A chairman model synthesises the best answer from the scored responses. Execution mode can be set to `full` (all three stages), `chat_only` (skip peer review and synthesis), or `ranking` (peer review only).
+
+### Debate
+
+Multi-round structured debate. Models produce opening statements on a topic, then engage in one or more rebuttal rounds where they respond to each other's arguments. After all rounds, models peer-evaluate the debate anonymously. A chairman delivers a final verdict weighing all arguments and evaluations. Configurable number of rounds (default: 2).
+
+### Decide
+
+Structured decision support. Provide at least two options and a set of criteria (defaults: feasibility, cost, complexity, maintainability). Each model independently scores every option against every criterion and recommends a winner with reasoning. Scores are aggregated across models, peer-evaluated, and a chairman delivers a final recommendation. Outputs include a score matrix and recommendation vote counts.
+
+### Minmax
+
+Risk-averse variant of Decide using the [minimax](https://en.wikipedia.org/wiki/Minimax) strategy. Same inputs (options + criteria), but each model scores options under **worst-case assumptions** — what is the lowest plausible score for each option on each criterion? For each option the minimum score across criteria is computed, then averaged across models. The chairman picks the option that **maximises the minimum outcome** — the safest choice when downside risk matters most.
+
+### Brainstorm
+
+Collaborative ideation with cross-pollination. In round 1 every model generates ideas independently. In subsequent rounds each model sees all previous ideas (anonymised) and builds on them — combining, refining, or proposing new directions. A chairman synthesises all ideas into themes, highlights the strongest concepts, and suggests next steps. Configurable style (`wild`, `practical`, `balanced`) and number of rounds.
 
 ## Config and settings
 
@@ -85,4 +100,4 @@ So: **use the CLIs for no API key**, or **set the env vars** to use the APIs (an
 ## Inspirations
 
 - **Idea**: [karpathy/llm-council](https://github.com/karpathy/llm-council) — multi-LLM council that collects first opinions, peer review, and chairman synthesis.
-- **Frontend**: [jacob-bd/llm-council-plus](https://github.com/jacob-bd/llm-council-plus) — multi-LLM council with Ask, Debate, Decide, Minmax, and Brainstorm modes.
+- **Frontend**: [jacob-bd/llm-council-reloaded](https://github.com/jacob-bd/llm-council-reloaded) — multi-LLM council with Ask, Debate, Decide, Minmax, and Brainstorm modes.

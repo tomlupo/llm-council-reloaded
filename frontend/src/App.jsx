@@ -16,7 +16,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1 onClick={() => setView('chat')}>LLM Council Plus</h1>
+        <h1 onClick={() => setView('chat')}>LLM Council Reloaded</h1>
         <nav>
           <button
             className={view === 'chat' ? 'active' : ''}
