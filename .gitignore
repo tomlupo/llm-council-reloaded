@@ -1,0 +1,66 @@
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+
+# Local runtime data (conversations, settings)
+backend/data/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# uv
+.uv/
+
+# Node / frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+*.local
+
+# IDE and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local config (keep .example committed)
+config/settings.json
+
+# Logs and temp
+*.log
+*.tmp
+.cache/
+
+# Windows alternate data streams
+*:Zone.Identifier
+*:Zone.Identifier:Zone.Identifier
